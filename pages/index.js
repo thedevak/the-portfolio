@@ -8,7 +8,7 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
 
-      <main className={styles.main}>Hello</main>
+      <main className={styles.main}>Homepage</main>
     </div>
   );
 }
