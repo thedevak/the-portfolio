@@ -1,8 +1,10 @@
 {
   "custom-field": "test",
   "custom-object": {
-    "custom-line": "test",
+    "custom-line": "1",
     "custom-text": "dsfdgxgfhxdgf"
   },
-  "custom-list": []
+  "custom-list": [
+    {}
+  ]
 }
