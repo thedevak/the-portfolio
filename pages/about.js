@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Post from '../components/post.js';
 
 function About() {
   return (
@@ -9,7 +8,6 @@ function About() {
       </Head>
       <main>
         <h1>About</h1>
-        <Post />
       </main>
     </div>
   );

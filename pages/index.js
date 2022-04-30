@@ -21,24 +21,28 @@ const Home = ({ posts }) => {
       <Head>
         <title>Portfolio</title>
       </Head>
-      {posts.map((post) => (
-        <Link href={'/ninjas/' + post.id} key={post.id}>
-          <a className={styles.single}>
-            <img
-              src={post.x_featured_media_original}
-              alt={post.title.rendered}
-              width="100%"
-              layout="responsive"
-            />
-            <h2>{post.title.rendered}</h2>
+      <div className={styles.portgrid}>
+        {posts.map((post) => (
+          <div className={styles.portcard}>
+            <Link href={'/ninjas/' + post.id} key={post.id}>
+              <a className={styles.single}>
+                <img
+                  src={post.x_featured_media_original}
+                  alt={post.title.rendered}
+                  width="100%"
+                  layout="responsive"
+                />
+                <h2>{post.title.rendered}</h2>
 
-            {/* <div
+                {/* <div
               className="text-container"
               dangerouslySetInnerHTML={{ __html: post.content.rendered }}
             /> */}
-          </a>
-        </Link>
-      ))}
+              </a>
+            </Link>
+          </div>
+        ))}
+      </div>
     </main>
   );
 };
