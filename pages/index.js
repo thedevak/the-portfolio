@@ -24,7 +24,7 @@ const Home = ({ posts }) => {
       <div className={styles.portgrid}>
         {posts.map((post) => (
           <div className={styles.portcard}>
-            <Link href={'/ninjas/' + post.id} key={post.id}>
+            <Link href={'/portfolios/' + post.id} key={post.id}>
               <a className={styles.single}>
                 <img
                   src={post.x_featured_media_original}
