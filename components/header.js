@@ -7,7 +7,7 @@ function Header() {
       <div className={styles.brand}>
         <Link href="/">Portfolio</Link>
       </div>
-      <div>
+      <div className={styles.nav}>
         <ul>
           <li>
             <Link href="/">Portfolio</Link>

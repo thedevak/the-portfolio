@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.brand {
+  font-family: var(--headfont);
+  font-size: 30px;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  display: inline-block;
+}
+
+.nav ul li a {
+  display: block;
+  padding: 10px 12px;
+}
