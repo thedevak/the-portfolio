@@ -1,45 +1,46 @@
-export const getStaticPaths = async () => {
-  const res = await fetch(
-    'https://akthedesigner.com/admin/wp-json/wp/v2/portfolios'
-  );
-  const data = await res.json();
+import Head from 'next/head';
 
-  // map data to an array of path objects with params (id)
-  const paths = data.map((ninja) => {
-    return {
-      params: { id: ninja.id.toString() },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async (context) => {
-  const id = context.params.id;
-  const res = await fetch(
-    'https://akthedesigner.com/admin/wp-json/wp/v2/portfolios/' + id
-  );
-  const data = await res.json();
-
-  return {
-    props: { ninja: data },
-  };
-};
-
-const Details = ({ ninja }) => {
+export default function Blog({ data }) {
   return (
     <div>
-      <h1>{ninja.id}</h1>
-      <h1>{ninja.title.rendered}</h1>
-      <div
-        className="text-container"
-        dangerouslySetInnerHTML={{ __html: ninja.content.rendered }}
-      />
+      {data.map((post, index) => {
+        return (
+          <div key={index}>
+            <Head>
+              <title>{post['yoast_head_json']['title']}</title>
+              <meta
+                name="description"
+                content={post['yoast_head_json']['description']}
+              />
+              <meta name="title" content={post['yoast_head_json']['title']} />
+              <meta
+                name="description"
+                content={post['yoast_head_json']['description']}
+              />
+              <meta
+                http-equiv="Content-Type"
+                content="text/html; charset=utf-8"
+              />
+              <meta name="language" content="English" />
+            </Head>
+            <h1>{post['title']['rendered']}</h1>
+            <div
+              className="text-container"
+              dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+            />
+          </div>
+        );
+      })}
     </div>
   );
-};
+}
 
-export default Details;
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+
+  const res = await fetch(
+    `https://akthedesigner.com/admin/wp-json/wp/v2/portfolios?_embed&slug=${id}`
+  );
+  const data = await res.json();
+  return { props: { data } };
+}

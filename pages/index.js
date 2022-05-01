@@ -14,7 +14,7 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ posts }) => {
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <main>
@@ -23,8 +23,8 @@ const Home = ({ posts }) => {
       </Head>
       <div className={styles.portgrid}>
         {posts.map((post) => (
-          <div className={styles.portcard}>
-            <Link href={'/portfolios/' + post.id} key={post.id}>
+          <div key={post.id} className={styles.portcard}>
+            <Link href={`/portfolios/${post['slug']}`}>
               <a className={styles.single}>
                 <img
                   src={post.x_featured_media_original}
