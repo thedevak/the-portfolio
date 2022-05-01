@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import styles from '../../styles/Portfoliosingle.module.css';
 
 export default function Blog({ data }) {
   return (
@@ -23,7 +24,7 @@ export default function Blog({ data }) {
               />
               <meta name="language" content="English" />
             </Head>
-            <h1>{post['title']['rendered']}</h1>
+            <h1 className={styles.porttitle}>{post['title']['rendered']}</h1>
             <div
               className="text-container"
               dangerouslySetInnerHTML={{ __html: post.content.rendered }}

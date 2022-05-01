@@ -21,6 +21,12 @@ const Home = ({ posts }) => {
       <Head>
         <title>Portfolio</title>
       </Head>
+
+      <div className={styles.intro}>
+        <h1>Hi! I'm Your Name</h1>
+        <h2>Designer . Animator . Illustrator</h2>
+      </div>
+
       <div className={styles.portgrid}>
         {posts.map((post) => (
           <div key={post.id} className={styles.portcard}>
